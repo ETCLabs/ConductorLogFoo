@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "queryrunner.h"
+#include "version.h"
 #include <QThread>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -13,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    setWindowTitle(QString("ConductorLogFoo %1")
+    .arg(PROJECT_VERSION));
     ui->setupUi(this);
     m_queryThread = new QThread(this);
     m_runner = new QueryRunner();

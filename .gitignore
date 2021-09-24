@@ -53,3 +53,6 @@ compile_commands.json
 
 # Build directory
 build/
+
+# CMake generated version header
+src/version.h
