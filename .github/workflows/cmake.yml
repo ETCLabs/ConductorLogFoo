@@ -12,9 +12,9 @@ env:
   # MSVC installation directory 
   VCINSTALLDIR: C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/
   # The Qt installation dir for CMake
-  Qt5_DIR: Qt\5.13.1\msvc2017_64\lib\cmake\Qt5\
+  Qt5_DIR: Qt\5.15.2\msvc2017\lib\cmake\Qt5\
   # The Qt root dir
-  QTDIR: Qt\5.13.1\msvc2017_64\
+  QTDIR: Qt\5.15.2\msvc2017\
 
 jobs:
   windows:
@@ -25,17 +25,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-# Download and install Qt. See https://github.com/skypjack/gh-greets-qt/
-    - name: Prepare
-      working-directory: build
-      shell: cmd
-      run: |
-        curl -vLo qt-unified-windows-x86-online.exe http://download.qt.io/official_releases/online_installers/qt-unified-windows-x86-online.exe
-        qt-unified-windows-x86-online.exe --verbose --script ..\ci\qt.qs
-    - name: Configure
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.2'
+        host: 'windows'
+        target: 'desktop'
 
     - name: Compile
       # Build your program with the given configuration
