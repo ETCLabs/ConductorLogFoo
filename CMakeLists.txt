@@ -81,6 +81,17 @@ if(WIN32)
         DESTINATION "bin"
     )
 
+    # DLLs for Postgresql work
+    install (
+        FILES
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/libcrypto-1_1.dll"
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/libiconv-2.dll"
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/libintl-8.dll"
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/libpq.dll"
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/libssl-1_1.dll"
+        DESTINATION "bin"
+    )
+
     install(
         TARGETS
         ConductorLogFoo

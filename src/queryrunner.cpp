@@ -26,7 +26,7 @@ void QueryRunner::connectToDatabase(QString hostname, QString database, QString 
         m_lastError = m_database.lastError().text();
         emit queryError(0);
 
-        emit statusText(tr("Error Opening Database"));
+        emit statusText(tr("Error Opening Database - %1").arg(m_lastError));
         return;
     }
     else
