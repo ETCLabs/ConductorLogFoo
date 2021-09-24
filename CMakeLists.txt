@@ -12,7 +12,7 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets Sql Core )
 
-add_executable(ConductorLogFoo [WIN32]
+add_executable(ConductorLogFoo WIN32
     src/main.cpp
     src/mainwindow.cpp
     src/queryrunner.cpp
