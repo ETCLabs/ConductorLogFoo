@@ -47,6 +47,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/gh-greets-qt_installer.exe
+        files: build/ConductorLogFoo*.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
