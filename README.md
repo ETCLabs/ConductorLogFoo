@@ -25,7 +25,7 @@ Once you have selected the range, press the `Get me logs` button to start the pr
 
 ![Time Range](./images/duration.png)
 
-In the duration window you select a single day and time, and then select the duration around that time which you want logs for. This can be example when troubleshooting an event that happened at a known time, for example.
+In the duration window you select a single day and time, and then select the duration around that time which you want logs for. This can be useful when troubleshooting an event that happened at a known time, for example.
 
 Enter the date and time, and the amount of time before, after or around that time you want logs for. Again press the button to retrieve the data.
 
