@@ -8,14 +8,13 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QStandardPaths>
+#include <QSettings>
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    setWindowTitle(QString("ConductorLogFoo %1")
-    .arg(PROJECT_VERSION));
     ui->setupUi(this);
     m_queryThread = new QThread(this);
     m_runner = new QueryRunner();
@@ -33,6 +32,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->progressBar->setMinimum(0);
     ui->stackedWidget->setCurrentIndex(0);
+
+    setWindowTitle(QString("ConductorLogFoo - %1")
+    .arg(PROJECT_VERSION));
+
+    // Load saved settings for User, Password and IP
+    QSettings settings;
+    ui->leIp->setText(settings.value("conductorIp", "10.101.50.60").toString());
+    ui->leUser->setText(settings.value("conductorUser", "etcuser").toString());
+    ui->lePass->setText(settings.value("conductorPass", "lights").toString());
 }
 
 MainWindow::~MainWindow()
@@ -45,6 +53,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnConnect_pressed()
 {
+    QSettings settings;
+    settings.setValue("conductorIp", ui->leIp->text());
+    settings.setValue("conductorUser", ui->leUser->text());
+    settings.setValue("conductorPass", ui->lePass->text());
 
     QMetaObject::invokeMethod(m_runner,
         "connectToDatabase",

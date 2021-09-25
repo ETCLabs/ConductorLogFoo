@@ -9,6 +9,10 @@ int main(int argc, char *argv[])
     qRegisterMetaType<TomSqlResult>("TomSqlResult");
 
     QApplication a(argc, argv);
+
+    a.setApplicationName("ConductorLogFoo");
+    a.setOrganizationName("ETC Inc");
+
     MainWindow w;
     w.show();
 

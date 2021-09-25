@@ -13,15 +13,39 @@
   <property name="windowTitle">
    <string>ConductorLogFoo</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../res/Icon_16.png</normaloff>../res/Icon_16.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
+        <item row="6" column="1" colspan="3">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Password :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="5">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="3" column="4">
          <widget class="QLineEdit" name="leIp">
           <property name="text">
@@ -36,17 +60,23 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="4">
-         <widget class="QLineEdit" name="leUser">
-          <property name="text">
-           <string>etcuser</string>
+        <item row="1" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-         </widget>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
-        <item row="4" column="1" colspan="2">
-         <widget class="QLabel" name="label_3">
+        <item row="3" column="1" colspan="3">
+         <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Username :</string>
+           <string>IP :</string>
           </property>
          </widget>
         </item>
@@ -68,36 +98,22 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="1" colspan="3">
-         <widget class="QLabel" name="label_4">
+        <item row="4" column="1" colspan="2">
+         <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>Password :</string>
+           <string>Username :</string>
           </property>
          </widget>
         </item>
-        <item row="8" column="0" colspan="6">
-         <widget class="QCommandLinkButton" name="btnConnect">
-          <property name="text">
-           <string>Connect</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1" colspan="3">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>IP :</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="5">
-         <spacer name="horizontalSpacer">
+        <item row="10" column="1">
+         <spacer name="verticalSpacer">
           <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+           <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
-            <height>20</height>
+            <width>20</width>
+            <height>40</height>
            </size>
           </property>
          </spacer>
@@ -115,20 +131,14 @@
           </property>
          </spacer>
         </item>
-        <item row="9" column="1">
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+        <item row="4" column="4">
+         <widget class="QLineEdit" name="leUser">
+          <property name="text">
+           <string>etcuser</string>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
+         </widget>
         </item>
-        <item row="7" column="0">
+        <item row="7" column="1">
          <spacer name="verticalSpacer_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -141,18 +151,15 @@
           </property>
          </spacer>
         </item>
-        <item row="1" column="1">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+        <item row="8" column="1" colspan="4">
+         <widget class="QCommandLinkButton" name="btnConnect">
+          <property name="text">
+           <string>Connect</string>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
+          <property name="description">
+           <string>Connect to the Conductor Database with the supplied credentials</string>
           </property>
-         </spacer>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -486,7 +493,6 @@
   <tabstop>leIp</tabstop>
   <tabstop>leUser</tabstop>
   <tabstop>lePass</tabstop>
-  <tabstop>btnConnect</tabstop>
   <tabstop>btnGetLogs</tabstop>
  </tabstops>
  <resources/>
