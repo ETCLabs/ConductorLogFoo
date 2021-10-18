@@ -6,7 +6,7 @@ ConductorLogFoo is a tool for extracting log data from ETC's Conductor product.
 Although the inbuilt WebUI allows limited extraction of data, it is not very convenient for large amounts of data. This tool connects to the Conductor database and can extract unlimited data as a .CSV file for examination
 
 # How to Use ConductorLogFoo
-To use the tool, download the latest installer from the builds page.
+To use the tool, download the latest installer from the [Releases](https://github.com/ETCLabs/ConductorLogFoo/releases) page.
 
 The first screen allows you to connect to your Conductor. Enter the IP address, username and password.
 
