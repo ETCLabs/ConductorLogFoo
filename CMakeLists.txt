@@ -55,7 +55,7 @@ add_custom_command(TARGET ConductorLogFoo
     )
 
 # NSIS Packaging
-if(WIN32)    
+if(WIN32)
     include(InstallRequiredSystemLibraries)
 
     # Override the default NSIS template with our own to remove screens we don't want
@@ -74,7 +74,15 @@ if(WIN32)
     set(CPACK_NSIS_CREATE_ICONS_EXTRA "CreateShortCut '$SMPROGRAMS\\\\$STARTMENU_FOLDER\\\\ConductorLogFoo.lnk' '$INSTDIR\\\\bin\\\\ConductorLogFoo.exe' ")
     set(CPACK_NSIS_MUI_ICON "${CMAKE_CURRENT_LIST_DIR}/res/Icon.ico")
     set(CPACK_NSIS_PACKAGE_NAME "${CPACK_PACKAGE_NAME}")
-    
+
+    # Install the 2013 MSVCRT for the Postgres DLLs
+    install (
+        FILES
+        "${CMAKE_CURRENT_LIST_DIR}/libs/psql/vcredist_2013_x86.exe"
+        DESTINATION "bin"
+    )
+    list (APPEND CPACK_NSIS_EXTRA_INSTALL_COMMANDS " ExecWait '\\\"$INSTDIR\\\\vcredist_2013_x86.exe\\\" /install /quiet /norestart' ")
+
     install(
         DIRECTORY
         "${CMAKE_CURRENT_BINARY_DIR}/windeployqt/"
